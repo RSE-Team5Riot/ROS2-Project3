@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Riot_V3" 
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+
+<!-- added new code-->
+  <xacro:include filename="riot.gazebo" />  
+
+  <!-- base footprint -->
+  <link name="base_footprint" />
+<!--
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.01"/>
+  </joint>
+  -->
+  
+  <!--base_link-->
+  <link name="base_link">
+
+    <inertial>
+      <origin
+        xyz="-0.00731924788401569 -0.000495519981526249 0.148055312329441"
+        rpy="0 0 0" />
+      <mass
+        value="23.8011559593027" />
+      <inertia
+        ixx="0.263039373455415"
+        ixy="-9.77830112583802E-09"
+        ixz="0.00557641591684923"
+        iyy="0.404190875888997"
+        iyz="-5.8000914660657E-05"
+        izz="0.446699879113429" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="front_left_Link">
+    <inertial>
+      <origin
+        xyz="-2.91433543964104E-16 0.0727451186755974 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.238445952331711" />
+      <inertia
+        ixx="0.000175182461271135"
+        ixy="7.66564817265142E-20"
+        ixz="-1.7205356741103E-21"
+        iyy="0.000265785034598442"
+        iyz="4.06575814682064E-20"
+        izz="0.000175182461271135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/front_left_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/front_left_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="front_left_Joint"
+    type="continuous">
+    <origin
+      xyz="0.095 0.059124 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+  <link
+    name="front_right_Link">
+    <inertial>
+      <origin
+        xyz="-5.82867087928207E-16 0.0301635935595795 -1.66533453693773E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.238445952331711" />
+      <inertia
+        ixx="0.000175182461271135"
+        ixy="6.73391193067169E-20"
+        ixz="1.46642578993401E-20"
+        iyy="0.000265785034598442"
+        iyz="2.96461531539005E-20"
+        izz="0.000175182461271135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/front_right_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/front_right_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="front_right_Joint"
+    type="continuous">
+    <origin
+      xyz="0.095 -0.16302 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <link
+    name="back_left_Link">
+    <inertial>
+      <origin
+        xyz="-7.21644966006352E-16 0.0740350172559949 2.77555756156289E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.238445952331711" />
+      <inertia
+        ixx="0.000175182461271135"
+        ixy="6.09863722023096E-20"
+        ixz="-2.75021010061631E-20"
+        iyy="0.000265785034598442"
+        iyz="4.2351647362715E-20"
+        izz="0.000175182461271135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/back_left_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/back_left_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="back_left_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.095 0.057834 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_left_Link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+  <link
+    name="back_right_Link">
+    <inertial>
+      <origin
+        xyz="0 0.0293283726076817 1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.238445952331711" />
+      <inertia
+        ixx="0.000175182461271135"
+        ixy="6.39509875176997E-20"
+        ixz="-2.8640301529036E-20"
+        iyy="0.000265785034598442"
+        iyz="3.55753837846806E-20"
+        izz="0.000175182461271135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/back_right_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/back_right_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="back_right_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.095 -0.16219 0.05"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_right_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="0.00836854131407994 0 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00523598775598299" />
+      <inertia
+        ixx="2.40855436775218E-07"
+        ixy="4.96308367531817E-24"
+        ixz="1.65436122510606E-24"
+        iyy="2.55254403104171E-07"
+        iyz="1.65436122510606E-24"
+        izz="2.55254403104171E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="camera_Joint"
+    type="fixed">
+    <origin
+      xyz="0.19013 -0.00049552 0.22089"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+
+  <link
+    name="hokuyo">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 5.55111512312578E-17 0.0193003055082826"
+        rpy="0 0 0" />
+      <mass
+        value="0.171029210078734" />
+      <inertia
+        ixx="8.16653772390185E-05"
+        ixy="4.2351647362715E-22"
+        ixz="1.4849546356552E-20"
+        iyy="8.16653772390186E-05"
+        iyz="2.5410988417629E-21"
+        izz="0.00011937610828968" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/hokuyo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find Riot_V3)/meshes/hokuyo.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="hokuyo_Joint"
+    type="fixed">
+    <origin
+      xyz="0.14 -0.00049552 0.14987"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hokuyo" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+</robot>

@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'front_left_Joint', 'front_right_Joint', 'back_left_Joint', 'back_right_Joint', 'camera_Joint', 'hokuyo_joint', ]
